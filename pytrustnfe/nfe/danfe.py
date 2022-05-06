@@ -902,7 +902,12 @@ obsCont[@xCampo='NomeVendedor']"
         self.vline(nMr - 102, self.nlin + 2, nH)
         self.stringcenter(nMr - 99, self.nlin + 5.5, "CFOP")
         self.vline(nMr - 108, self.nlin + 2, nH)
-        self.stringcenter(nMr - 105, self.nlin + 5.5, "CST")
+        elem_crt = oXML.find(".//{http://www.portalfiscal.inf.br/nfe}emit")
+        crt = tagtext(oNode=elem_crt, cTag='CRT')
+        if crt == '3':
+            self.stringcenter(nMr - 105, self.nlin + 5.5, 'CST')
+        else:
+            self.stringcenter(nMr - 105, self.nlin + 5.5, 'CSOS.')
         self.vline(nMr - 117, self.nlin + 2, nH)
         self.stringcenter(nMr - 112.5, self.nlin + 5.5, "NCM/SH")
 
